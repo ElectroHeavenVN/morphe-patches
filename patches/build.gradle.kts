@@ -1,11 +1,11 @@
-group = "com.ehvn.zalomorphe"
+group = "com.ehvn"
 
 patches {
     // TODO: Update this section with your project details.
     about {
         name = "EHVN Patches"
-        description = "Patches for Zalo"
-        source = "git@github.com:ElectroHeavenVN/morphe-patches-zalo.git"
+        description = "Morphe patches for Android apps."
+        source = "git@github.com:ElectroHeavenVN/morphe-patches.git"
         author = "ElectroHeavenVN"
         contact = "https://t.me/electroheavenvn"
         website = "https://discord.gg/electroheavenvn-va-nhung-nguoi-ban-1115634791321190420"
