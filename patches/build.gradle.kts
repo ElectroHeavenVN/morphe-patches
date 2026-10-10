@@ -20,9 +20,20 @@ val patchListGeneratorClasspath = configurations.create("patchListGeneratorClass
 dependencies {
     compileOnly(libs.gson)
     patchListGeneratorClasspath(libs.gson)
+    compileOnly(fileTree("libs") { include("*.jar") })
 }
 
 tasks {
+    jar {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        from(zipTree("libs/npatch.jar")) {
+            exclude("META-INF/*.SF", "META-INF/*.DSA", "META-INF/*.RSA")
+            exclude("com/google/**")
+            exclude("org/bouncycastle/**")
+            exclude("javax/**")
+        }
+    }
+
     register<JavaExec>("generatePatchesList") {
         description = "Build patch with patch list"
 

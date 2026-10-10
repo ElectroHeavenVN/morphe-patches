@@ -5,8 +5,7 @@ Morphe patches for Android apps.
 ## ❓ About
 
 Patches for apps I like. Currently, this repo contains patches for Zalo app.
-
-<!-- TODO: Update this about section with a brief introduction/summary about this repo and what it offers. -->
+For the primary development repository for these patches, visit [ZaloXposed](https://github.com/ElectroHeavenVN/ZaloXposed). This repository only contains the patches for intergrating Xposed module into Zalo.
 
 ### How to use these patches
 
