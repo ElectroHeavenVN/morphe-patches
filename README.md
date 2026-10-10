@@ -1,16 +1,16 @@
-# 👋🧩 Morphe Patches template
+# 👋🧩 EHVN Morphe Patches
 
-Template repository for Morphe Patches.
+Morphe patches for Android apps.
 
 ## ❓ About
 
-Patches for apps I like.
+Patches for apps I like. Currently, this repo contains patches for Zalo app.
 
 <!-- TODO: Update this about section with a brief introduction/summary about this repo and what it offers. -->
 
 ### How to use these patches
 
-Click here to add these patches to Morphe: https://morphe.software/add-source?github=xyz-user/xyz-patches
+Click here to add these patches to Morphe: https://morphe.software/add-source?github=ElectroHeavenVN/morphe-patches
 
 ## 🩹 Patches list
 
@@ -88,4 +88,4 @@ See the [Morphe documentation](https://github.com/MorpheApp/morphe-documentation
 
 ## 📜 License
 
-UserXYZ Patches are licensed under the [GNU General Public License v3.0](LICENSE)
+EHVN Morphe Patches are licensed under the [GNU General Public License v3.0](LICENSE)

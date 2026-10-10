@@ -1,14 +1,14 @@
-group = "app.template"
+group = "com.ehvn"
 
 patches {
     // TODO: Update this section with your project details.
     about {
-        name = "UserXYZ Patches"
-        description = "Patches for apps I like"
-        source = "git@github.com:UserXYZ/morphe-patches.git"
-        author = "Awesome dev"
-        contact = "na"
-        website = "na"
+        name = "EHVN Patches"
+        description = "Morphe patches for Android apps."
+        source = "git@github.com:ElectroHeavenVN/morphe-patches.git"
+        author = "ElectroHeavenVN"
+        contact = "https://t.me/electroheavenvn"
+        website = "https://discord.gg/electroheavenvn-va-nhung-nguoi-ban-1115634791321190420"
         license = "GPLv3"
     }
 }
