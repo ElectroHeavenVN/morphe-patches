@@ -1,9 +1,9 @@
-package com.ehvn.patches.zalo.misc
+package io.github.electroheavenvn.patches.zalo.misc
 
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
-import com.ehvn.patches.zalo.shared.Constants.COMPATIBILITY_ZALO
-import com.ehvn.patches.zalo.xposed.integrateXposedPatch
+import io.github.electroheavenvn.patches.zalo.shared.Constants.COMPATIBILITY_ZALO
+import io.github.electroheavenvn.patches.zalo.xposed.integrateXposedPatch
 
 import org.w3c.dom.Document
 import org.w3c.dom.Element

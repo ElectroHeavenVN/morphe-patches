@@ -1,4 +1,4 @@
-package com.ehvn.patches.zalo.shared
+package io.github.electroheavenvn.patches.zalo.shared
 
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility

@@ -1,9 +1,9 @@
-package com.ehvn.patches.zalo.xposed
+package io.github.electroheavenvn.patches.zalo.xposed
 
 import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.resourcePatch
-import com.ehvn.patches.shared.npatch.integrateNPatch
-import com.ehvn.patches.zalo.shared.Constants.COMPATIBILITY_ZALO
+import io.github.electroheavenvn.patches.shared.npatch.integrateNPatch
+import io.github.electroheavenvn.patches.zalo.shared.Constants.COMPATIBILITY_ZALO
 
 private val providerOption = booleanOption(
     key = "provider",

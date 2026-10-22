@@ -1,4 +1,4 @@
-package com.ehvn.patches.shared.npatch
+package io.github.electroheavenvn.patches.shared.npatch
 
 import app.morphe.patcher.patch.ResourcePatchContext
 import org.w3c.dom.Document
@@ -51,7 +51,7 @@ fun ResourcePatchContext.integrateNPatch(
     copyResource("npatch/metaloader.dex", "classes${largestDexIndex + 1}.dex")
     copyResource("npatch/loader.bin", "assets/npatch/loader.bin")
     this["assets/npatch/config.json"].writeBytes(configBytes)
-    copyResource("modules/app-release.apk", "assets/npatch/modules/com.ehvn.zaloxposed.apk")
+    copyResource("modules/app-release.apk", "assets/npatch/modules/io.github.electroheavenvn.zaloxposed.apk")
     copyResource("npatch/so/arm64-v8a/libnpatch.so", "assets/npatch/so/arm64-v8a/libnpatch.so")
     copyResource("npatch/so/x86_64/libnpatch.so", "assets/npatch/so/x86_64/libnpatch.so")
 

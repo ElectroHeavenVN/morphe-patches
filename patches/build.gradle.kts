@@ -1,4 +1,4 @@
-group = "com.ehvn"
+group = "io.github.electroheavenvn"
 
 patches {
     // TODO: Update this section with your project details.

@@ -1,4 +1,4 @@
-package com.ehvn.patches.shared.npatch
+package io.github.electroheavenvn.patches.shared.npatch
 
 import java.nio.charset.StandardCharsets
 import java.util.Base64
