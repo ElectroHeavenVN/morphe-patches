@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.0",
+  "version": "1.0.0-dev.1",
   "patches": [
     {
       "name": "Clone app",
@@ -15,11 +15,11 @@
           "apkFileType": null,
           "appIconColor": "#0068FF",
           "signatures": null,
+          "formFactor": "MOBILE",
           "targets": [
             {
               "version": "26.09.01",
               "versionCodes": {
-                "ARMEABI_V7A": 260901903,
                 "ARM64_V8A": 260901903
               },
               "isExperimental": false,
@@ -29,8 +29,16 @@
             {
               "version": "26.10.01",
               "versionCodes": {
-                "ARMEABI_V7A": 261001905,
                 "ARM64_V8A": 261001905
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "26.10.02",
+              "versionCodes": {
+                "ARM64_V8A": 261002901
               },
               "isExperimental": true,
               "minSdk": null,
@@ -46,14 +54,14 @@
           "description": "The clone number appended to the package name and app name (e.g. 2 -> Zalo Morphe 2). Leave empty to use the default name.",
           "required": false,
           "type": "kotlin.String",
-          "default": "1",
+          "default": "",
           "values": null
         }
       ]
     },
     {
       "name": "Integrate ZaloXposed",
-      "description": "Integrates ZaloXposed into Zalo APK using NPatch CLI.",
+      "description": "Integrates ZaloXposed using NPatch. Must be enabled for other patches to work.",
       "default": true,
       "category": null,
       "compatiblePackages": [
@@ -64,11 +72,11 @@
           "apkFileType": null,
           "appIconColor": "#0068FF",
           "signatures": null,
+          "formFactor": "MOBILE",
           "targets": [
             {
               "version": "26.09.01",
               "versionCodes": {
-                "ARMEABI_V7A": 260901903,
                 "ARM64_V8A": 260901903
               },
               "isExperimental": false,
@@ -78,8 +86,16 @@
             {
               "version": "26.10.01",
               "versionCodes": {
-                "ARMEABI_V7A": 261001905,
                 "ARM64_V8A": 261001905
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            },
+            {
+              "version": "26.10.02",
+              "versionCodes": {
+                "ARM64_V8A": 261002901
               },
               "isExperimental": true,
               "minSdk": null,
