@@ -34,6 +34,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+        # TODO: download latest/nightly release of ZaloXposed and place the APK file in the correct folder here. 
+
       # Semantic release runs its own Gradle build command.
       # Only dev and main branch will generate a release as specified by .releaserc
       - name: Release

@@ -10,22 +10,27 @@ internal data class NPatchConfig(
     val useMicroG: Boolean,
     val usesCleartextTraffic: Boolean,
 ) {
+    companion object {
+        private const val CORE_VERSION_CODE = 3111
+        private const val CORE_VERSION_NAME = "v2.2-core"
+        private const val VERSION_CODE = 833
+        private const val VERSION_NAME = "1.0.9"
+    }
+
     fun toJsonBytes(): ByteArray = buildString {
         append('{')
-        append("\"appComponentFactory\":\"").append(appComponentFactory.jsonEscape()).append("\",")
         append("\"debuggable\":false,")
         append("\"hideLibs\":false,")
         append("\"injectProvider\":").append(injectProvider).append(',')
         append("\"lspConfig\":{")
         append("\"API_CODE\":102,")
-        append("\"CORE_VERSION_CODE\":3112,")
-        append("\"CORE_VERSION_NAME\":\"v2.2-core\",")
-        append("\"VERSION_CODE\":801,")
-        append("\"VERSION_NAME\":\"1.0.8\",")
+        append("\"CORE_VERSION_CODE\":").append(CORE_VERSION_CODE).append(',')
+        append("\"CORE_VERSION_NAME\":\"").append(CORE_VERSION_NAME.jsonEscape()).append("\",")
+        append("\"VERSION_CODE\":").append(VERSION_CODE).append(',')
+        append("\"VERSION_NAME\":\"").append(VERSION_NAME.jsonEscape()).append("\",")
         append("\"sigBypassLevel\":0},")
         append("\"managerPackageName\":\"top.nkbe.npatch\",")
         append("\"newPackage\":\"").append(packageName.jsonEscape()).append("\",")
-        append("\"originalSignature\":null,")
         append("\"outputLog\":true,")
         append("\"overrideTargetSdk\":false,")
         append("\"overrideTargetSdkValue\":28,")

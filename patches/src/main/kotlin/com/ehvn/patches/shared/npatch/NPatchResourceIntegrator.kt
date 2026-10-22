@@ -88,11 +88,12 @@ private fun rewriteManifest(
     application.childElements("meta-data")
         .filter { it.androidAttribute("name") in REMOVED_METADATA }
         .forEach(application::removeChild)
-    document.createElement("meta-data").also { metadata ->
-        metadata.setAndroidAttribute("name", "npatch")
-        metadata.setAndroidAttribute("value", configBase64)
-        application.appendChild(metadata)
-    }
+    // Maybe we don't need to write config to manifest metadata
+    // document.createElement("meta-data").also { metadata ->
+    //     metadata.setAndroidAttribute("name", "npatch")
+    //     metadata.setAndroidAttribute("value", configBase64)
+    //     application.appendChild(metadata)
+    // }
 
     application.childElements("provider")
         .filter { it.androidAttribute("name") == PROVIDER_CLASS }
