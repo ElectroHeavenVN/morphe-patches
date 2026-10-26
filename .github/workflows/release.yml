@@ -39,7 +39,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir -p patches/src/main/resources/modules
-          gh release download --repo ElectroHeavenVN/ZaloXposed --pattern "*.apk" --output /tmp/zaloxposed.apk --clobber
+          TAG_FLAG=""
+          if [ "${{ github.ref_name }}" = "dev" ]; then
+            TAG_FLAG="nightly"
+          fi
+          gh release download $TAG_FLAG --repo ElectroHeavenVN/ZaloXposed --pattern "*.apk" --output /tmp/zaloxposed.apk --clobber
 
       - name: Patch ZaloXposed APK and sign
         env:
