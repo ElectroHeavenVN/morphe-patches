@@ -9,6 +9,9 @@ Morphe patches for Android apps.
 >
 > For more information about the available features, issues, and feature requests, please visit the [ZaloXposed](https://github.com/ElectroHeavenVN/ZaloXposed/) repository.
 
+> [!NOTE]
+> If the target APK version needed for patching is not available on [APKMirror](https://www.apkmirror.com/apk/zalo-group/zalo/), you can download it from [here](https://github.com/ElectroHeavenVN/ZaloXposed/releases/tag/apk).
+
 ### How to use these patches
 
 Click the button below, or manually add this repo url to Morphe Manager: https://github.com/ElectroHeavenVN/morphe-patches
