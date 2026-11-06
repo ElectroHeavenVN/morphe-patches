@@ -1,3 +1,9 @@
+## [1.1.0-dev.1](https://github.com/ElectroHeavenVN/morphe-patches/compare/v1.0.0...v1.1.0-dev.1) (2026-11-06)
+
+### ✨ New Features
+
+* add new Zalo version ([ebff6c2](https://github.com/ElectroHeavenVN/morphe-patches/commit/ebff6c2efeeadf153daec35be5f69a4cd7dfe484))
+
 ## 1.0.0 (2026-10-26)
 
 ### ✨ New Features
