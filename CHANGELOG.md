@@ -1,3 +1,9 @@
+## [1.1.0-dev.4](https://github.com/ElectroHeavenVN/morphe-patches/compare/v1.1.0-dev.3...v1.1.0-dev.4) (2026-11-12)
+
+### ✨ New Features
+
+* Update ZaloXposed nightly-e379554 ([da769b7](https://github.com/ElectroHeavenVN/morphe-patches/commit/da769b72da8c5a6de7fa72f27b54771186887cf5))
+
 ## [1.1.0-dev.3](https://github.com/ElectroHeavenVN/morphe-patches/compare/v1.1.0-dev.2...v1.1.0-dev.3) (2026-11-11)
 
 ### ✨ New Features
