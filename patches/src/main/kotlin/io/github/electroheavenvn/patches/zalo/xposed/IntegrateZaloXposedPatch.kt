@@ -1,10 +1,23 @@
 package io.github.electroheavenvn.patches.zalo.xposed
 
 import app.morphe.patcher.patch.booleanOption
-import app.morphe.patcher.patch.resourcePatch
-import io.github.electroheavenvn.patches.shared.npatch.integrateNPatch
+import app.morphe.patcher.patch.patch
+import app.morphe.patcher.patch.stringOption
+import io.github.electroheavenvn.patches.shared.loader.XposedLoader
+import io.github.electroheavenvn.patches.shared.loader.integrateXposedLoader
 import io.github.electroheavenvn.patches.zalo.misc.writeMicroGManifestPatch
 import io.github.electroheavenvn.patches.zalo.shared.Constants.COMPATIBILITY_ZALO
+
+private val loaderOption = stringOption(
+    key = "loader",
+    default = "NPatch",
+    values = mapOf(
+        "NPatch (x64 only)" to "NPatch",
+        "LSPatch (all ABIs)" to "LSPatch",
+    ),
+    title = "Xposed framework",
+    description = "Select the rootless Xposed framework to integrate into the APK.",
+) { it in values!!.values }
 
 private val providerOption = booleanOption(
     key = "provider",
@@ -21,21 +34,23 @@ private val cleartextOption = booleanOption(
 )
 
 @Suppress("unused")
-val integrateXposedPatch = resourcePatch(
+val integrateZaloXposedPatch = patch(
     name = "Integrate ZaloXposed",
-    description = "Integrates ZaloXposed using NPatch. Must be enabled for other patches to work.",
+    description = "Integrates ZaloXposed using a rootless Xposed framework (NPatch or LSPatch). Must be enabled for other Zalo patches from EHVN patches to work.",
     default = true,
 ) {
     compatibleWith(COMPATIBILITY_ZALO)
     dependsOn(writeMicroGManifestPatch)
 
+    val loader by loaderOption()
     val provider by providerOption()
     val cleartext by cleartextOption()
 
     finalize {
-        integrateNPatch(
+        integrateXposedLoader(
+            loader = XposedLoader.fromString(loader),
             injectProvider = provider ?: false,
-            usesCleartextTraffic = cleartext ?: false
+            usesCleartextTraffic = cleartext ?: false,
         )
     }
 }
