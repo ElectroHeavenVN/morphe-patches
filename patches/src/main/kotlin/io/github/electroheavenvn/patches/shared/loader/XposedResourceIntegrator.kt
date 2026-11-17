@@ -7,6 +7,7 @@ import app.morphe.patcher.patch.packageMetadata
 import app.morphe.patcher.patch.resourceFile
 import org.w3c.dom.Document
 import org.w3c.dom.Element
+import java.io.File
 
 private const val ANDROID_NAMESPACE = "http://schemas.android.com/apk/res/android"
 private const val NPATCH_PROXY_APP_COMPONENT_FACTORY = "top.nkbe.npatch.metaloader.LSPAppComponentFactoryStub"
@@ -74,6 +75,12 @@ fun integrateXposedLoader(
                 deleteResource("assets/npatch/mtprovider.dex")
             }
             deleteResource("assets/npatch/origin.apk")
+
+            ensureUncompressed(
+                "assets/npatch/loader.bin",
+                "assets/npatch/so/arm64-v8a/libnpatch.so",
+                "assets/npatch/so/x86_64/libnpatch.so",
+            )
         }
 
         XposedLoader.LSPATCH -> {
@@ -92,8 +99,83 @@ fun integrateXposedLoader(
             copyResource("lspatch/so/x86_64/liblspatch.so", "assets/lspatch/so/x86_64/liblspatch.so")
 
             deleteResource("assets/lspatch/origin.apk")
+
+            ensureUncompressed(
+                "assets/lspatch/loader.dex",
+                "assets/lspatch/so/arm64-v8a/liblspatch.so",
+                "assets/lspatch/so/armeabi-v7a/liblspatch.so",
+                "assets/lspatch/so/x86/liblspatch.so",
+                "assets/lspatch/so/x86_64/liblspatch.so",
+            )
         }
     }
+}
+
+private fun ensureUncompressed(vararg extraPaths: String) {
+    val filesToUpdate = mutableSetOf<File>()
+
+    try {
+        val dummyFile = resourceFile("uncompressed-files.json")
+        filesToUpdate.add(dummyFile)
+        dummyFile.parentFile?.let { parent ->
+            filesToUpdate.add(File(parent, "uncompressed-files.json"))
+            parent.parentFile?.let { grandParent ->
+                filesToUpdate.add(File(grandParent, "uncompressed-files.json"))
+            }
+        }
+    } catch (_: Exception) {}
+
+    try {
+        val manifestFile = resourceFile("AndroidManifest.xml")
+        manifestFile.parentFile?.let { manifestParent ->
+            filesToUpdate.add(File(manifestParent, "uncompressed-files.json"))
+            manifestParent.parentFile?.let { manifestGrandParent ->
+                filesToUpdate.add(File(manifestGrandParent, "uncompressed-files.json"))
+            }
+        }
+    } catch (_: Exception) {}
+
+    for (targetFile in filesToUpdate) {
+        val content = if (targetFile.exists() && targetFile.length() > 0) targetFile.readText() else ""
+
+        val extensions = parseJsonStringArray(content, "extensions").toMutableSet()
+        val paths = parseJsonStringArray(content, "paths").toMutableSet()
+
+        extensions.add(".so")
+        extensions.add("so")
+        paths.addAll(extraPaths)
+
+        val jsonOutput = buildString {
+            append("{\n")
+            append("  \"extensions\": [\n")
+            append(extensions.joinToString(",\n") { "    \"$it\"" })
+            append("\n  ],\n")
+            append("  \"paths\": [\n")
+            append(paths.joinToString(",\n") { "    \"$it\"" })
+            append("\n  ]\n")
+            append("}")
+        }
+
+        try {
+            targetFile.parentFile?.mkdirs()
+            targetFile.writeText(jsonOutput)
+        } catch (_: Exception) {}
+    }
+}
+
+private fun parseJsonStringArray(json: String, key: String): List<String> {
+    val keyIndex = json.indexOf("\"$key\"")
+    if (keyIndex == -1) return emptyList()
+
+    val bracketStart = json.indexOf('[', keyIndex)
+    if (bracketStart == -1) return emptyList()
+
+    val bracketEnd = json.indexOf(']', bracketStart)
+    if (bracketEnd == -1) return emptyList()
+
+    val arrayText = json.substring(bracketStart + 1, bracketEnd)
+    val regex = Regex("\"([^\"]+)\"")
+    return regex.findAll(arrayText).map { it.groupValues[1] }.toList()
 }
 
 private fun rewriteManifest(
