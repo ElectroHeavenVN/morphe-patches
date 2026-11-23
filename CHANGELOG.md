@@ -1,3 +1,9 @@
+## [1.1.2-dev.1](https://github.com/ElectroHeavenVN/morphe-patches/compare/v1.1.1...v1.1.2-dev.1) (2026-11-23)
+
+### 🐛 Bug Fixes
+
+* False positives in Morphe patch detection ([a3efd74](https://github.com/ElectroHeavenVN/morphe-patches/commit/a3efd7486c27405c057a42132f9aedd5dd63f857))
+
 ## [1.1.1](https://github.com/ElectroHeavenVN/morphe-patches/compare/v1.1.0...v1.1.1) (2026-11-22)
 
 ### 🐛 Bug Fixes
