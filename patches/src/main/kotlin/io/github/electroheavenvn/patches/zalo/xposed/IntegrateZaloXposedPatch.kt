@@ -41,6 +41,7 @@ val integrateZaloXposedPatch = patch(
 ) {
     compatibleWith(COMPATIBILITY_ZALO)
     dependsOn(writeMicroGManifestPatch)
+    extendWith("extensions/extension.mpe")
 
     val loader by loaderOption()
     val provider by providerOption()

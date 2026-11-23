@@ -62,12 +62,14 @@ fun integrateXposedLoader(
             )
             val configBytes = config.toJsonBytes()
 
-            copyResource("npatch/metaloader.dex", "classes${largestDexIndex + 1}.dex")
+            copyResource("npatch/metaloader.dex", "classes${largestDexIndex + 1 
+                    + 1 // extensions dex takes our place
+            }.dex")
             copyResource("npatch/loader.bin", "assets/npatch/loader.bin")
             resourceFile("assets/npatch/config.json").writeBytes(configBytes)
             copyResource("modules/app-release.apk", "assets/npatch/modules/io.github.electroheavenvn.zaloxposed.apk")
             copyResource("npatch/so/arm64-v8a/libnpatch.so", "assets/npatch/so/arm64-v8a/libnpatch.so")
-            copyResource("npatch/so/x86_64/libnpatch.so", "assets/npatch/so/x86_64/libnpatch.so")
+            // copyResource("npatch/so/x86_64/libnpatch.so", "assets/npatch/so/x86_64/libnpatch.so")
 
             if (injectProvider) {
                 copyResource("npatch/mtprovider.dex", "assets/npatch/mtprovider.dex")
@@ -79,7 +81,7 @@ fun integrateXposedLoader(
             ensureUncompressed(
                 "assets/npatch/loader.bin",
                 "assets/npatch/so/arm64-v8a/libnpatch.so",
-                "assets/npatch/so/x86_64/libnpatch.so",
+                // "assets/npatch/so/x86_64/libnpatch.so",
             )
         }
 
@@ -89,14 +91,16 @@ fun integrateXposedLoader(
             )
             val configBytes = config.toJsonBytes()
 
-            copyResource("lspatch/metaloader.dex", "classes${largestDexIndex + 1}.dex")
+            copyResource("lspatch/metaloader.dex", "classes${largestDexIndex + 1
+                    + 1 // extensions dex takes our place
+            }.dex")
             copyResource("lspatch/loader_patched.dex", "assets/lspatch/loader.dex")
             resourceFile("assets/lspatch/config.json").writeBytes(configBytes)
             copyResource("modules/app-release.apk", "assets/lspatch/modules/io.github.electroheavenvn.zaloxposed.apk")
             copyResource("lspatch/so/arm64-v8a/liblspatch.so", "assets/lspatch/so/arm64-v8a/liblspatch.so")
             copyResource("lspatch/so/armeabi-v7a/liblspatch.so", "assets/lspatch/so/armeabi-v7a/liblspatch.so")
-            copyResource("lspatch/so/x86/liblspatch.so", "assets/lspatch/so/x86/liblspatch.so")
-            copyResource("lspatch/so/x86_64/liblspatch.so", "assets/lspatch/so/x86_64/liblspatch.so")
+            // copyResource("lspatch/so/x86/liblspatch.so", "assets/lspatch/so/x86/liblspatch.so")
+            // copyResource("lspatch/so/x86_64/liblspatch.so", "assets/lspatch/so/x86_64/liblspatch.so")
 
             deleteResource("assets/lspatch/origin.apk")
 
@@ -104,8 +108,8 @@ fun integrateXposedLoader(
                 "assets/lspatch/loader.dex",
                 "assets/lspatch/so/arm64-v8a/liblspatch.so",
                 "assets/lspatch/so/armeabi-v7a/liblspatch.so",
-                "assets/lspatch/so/x86/liblspatch.so",
-                "assets/lspatch/so/x86_64/liblspatch.so",
+                // "assets/lspatch/so/x86/liblspatch.so",
+                // "assets/lspatch/so/x86_64/liblspatch.so",
             )
         }
     }
