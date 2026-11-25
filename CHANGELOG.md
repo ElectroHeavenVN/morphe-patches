@@ -1,3 +1,21 @@
+## [1.2.0-dev.2](https://github.com/ElectroHeavenVN/morphe-patches/compare/v1.2.0-dev.1...v1.2.0-dev.2) (2026-11-25)
+
+### ✨ New Features
+
+* Update ZaloXposed nightly-3dc8ded ([8761b73](https://github.com/ElectroHeavenVN/morphe-patches/commit/8761b73133d6e340380e794bbd57a72875631c2b))
+
+## [1.2.0-dev.1](https://github.com/ElectroHeavenVN/morphe-patches/compare/v1.1.2-dev.1...v1.2.0-dev.1) (2026-11-24)
+
+### ✨ New Features
+
+* Update ZaloXposed nightly-0e4a745 ([3f9a434](https://github.com/ElectroHeavenVN/morphe-patches/commit/3f9a434b139b7cd4074bd3d9c1b54f689b2ef028))
+
+## [1.1.2-dev.1](https://github.com/ElectroHeavenVN/morphe-patches/compare/v1.1.1...v1.1.2-dev.1) (2026-11-23)
+
+### 🐛 Bug Fixes
+
+* False positives in Morphe patch detection ([a3efd74](https://github.com/ElectroHeavenVN/morphe-patches/commit/a3efd7486c27405c057a42132f9aedd5dd63f857))
+
 ## [1.1.1](https://github.com/ElectroHeavenVN/morphe-patches/compare/v1.1.0...v1.1.1) (2026-11-22)
 
 ### 🐛 Bug Fixes
